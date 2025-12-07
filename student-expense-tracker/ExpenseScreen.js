@@ -195,18 +195,3 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
 });
-//Helper Components
-import CategoryPieChart from '../components/CategoryPieChart';
-import { getCategoryPercentages } from '../utils/getCategoryPercentages';
-//Compute Data
-const percentageData = getCategoryPercentages(expenses);
-//Render Chart
-<View style={{ flex: 1 }}>
-  <CategoryPieChart data={percentageData} />
-
-  <FlatList
-    data={expenses}
-    renderItem={renderExpenseItem}
-    keyExtractor={(item) => item.id.toString()}
-  />
-</View>

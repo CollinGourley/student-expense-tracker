@@ -87,15 +87,18 @@ const openEditModal = (expense) => {
   setDate(expense.date);
   setModalVisible(true);
 };
-  data={expenses}
-  keyExtractor={item => item.id.toString()}
-  renderItem=({ item }) => 
-    <TouchableOpacity onPress={() => openEditModal(item)}>
-      <View style={{ padding: 10, borderBottomWidth: 1 }}>
-        <Text>{item.category} - ${item.amount} ({item.date})</Text>
-        <Text>{item.note}</Text>
-      </View>
-    </TouchableOpacity>
+  <FlatList
+    data={expenses}
+    keyExtractor={item => item.id.toString()}
+    renderItem={({ item }) => (
+      <TouchableOpacity onPress={() => openEditModal(item)}>
+        <View style={{ padding: 10, borderBottomWidth: 1 }}>
+          <Text>{item.category} - ${item.amount} ({item.date})</Text>
+          <Text>{item.note}</Text>
+        </View>
+      </TouchableOpacity>
+    )}
+  />
 
 
 const saveEdit = () => {
